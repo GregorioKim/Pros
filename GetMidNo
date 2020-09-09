@@ -1,0 +1,43 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace MidNoEx
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //var s = "abcde";
+            var s = "qwer";
+            Solution sol = new Solution();
+            Console.WriteLine(sol.solution(s));
+            Console.ReadKey();
+        }
+    }
+
+
+    /* 단어 s의 가운데 글자를 반환하는 함수, solution을 만들어 보세요. 단어의 길이가 짝수라면 가운데 두글자를 반환하면 됩니다.
+    입출력 예
+        s    return
+    “abcde” “c” 
+    “qwer” “we” */
+    public class Solution
+    {
+        public string solution(string s)
+        {
+            string answer = "";
+
+            var arr = s.ToCharArray();
+
+            if (0 == s.Length % 2)
+                answer = arr[s.Length / 2 - 1].ToString() + arr[s.Length / 2].ToString();
+            else
+                answer = arr[s.Length / 2].ToString();
+
+            return answer;
+        }
+    }
+
+}
