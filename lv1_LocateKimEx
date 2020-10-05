@@ -1,0 +1,39 @@
+using System;
+
+namespace lv1_LocateKimEx
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string[] seoul = { "Jame", "Kim" };
+
+            var oSol = new Solution();
+            Console.WriteLine(oSol.solution(seoul));
+            Console.ReadKey();
+        }
+    }
+
+    public class Solution
+    {
+        public string solution(string[] seoul)
+        {
+            string answer = "";
+
+            int iNo = 0;
+            for (int i = 0; i < seoul.Length; i++)
+            {
+                if (seoul[i].Contains("Kim"))
+                {
+                    iNo = i;
+                    break;
+                }
+            }
+
+            answer = string.Format("김서방은 {0}에 있다", iNo);
+
+            return answer;
+        }
+    }
+
+}
