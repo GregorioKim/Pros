@@ -1,0 +1,51 @@
+using System;
+
+// 프로그래머스 lv1 - 시저암호 
+
+namespace CaesarPW
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string s = "a B z"; //"AB";
+            int n = 4; //1;
+
+            var oSol = new Solution();
+            Console.WriteLine(oSol.solution(s,n));
+            Console.ReadKey();
+        }
+    }
+
+    public class Solution
+    {
+        public string solution(string s, int n)
+        {
+            string answer = "";
+
+            char[] cArr = s.ToCharArray();
+            string tmp = "";
+            int tNo = 0;
+
+            for (int i = 0; i < cArr.Length; i++)
+            {
+                if (' ' == cArr[i]) // cArr[i] 자체가 숫자  
+                {
+                    tmp += " ";
+                }
+                else
+                {
+                    tNo = cArr[i] + n;
+                    if ( (tNo > 'Z' && tNo < 'a') || tNo > 'z')
+                        tNo -= 26;
+                    tmp += Convert.ToChar(tNo).ToString();
+                }
+            }
+
+            answer = tmp;
+
+            return answer;
+        }
+    }
+
+}
