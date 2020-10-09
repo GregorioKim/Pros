@@ -1,0 +1,36 @@
+using System;
+
+namespace lv1_SumOfAliquot
+{
+    // 약수의합 - 정수 n을 입력받아 n의 약수를 모두 더한 값을 리턴하는 함수, solution을 완성해주세요.
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //int n = 12;
+            int n = 5;
+
+            var oSol = new Solution();
+            Console.WriteLine(oSol.solution(n));
+            Console.ReadKey();
+        }
+    }
+    public class Solution
+    {
+        public int solution(int n)
+        {
+            int answer = 0;
+
+            for (int i = 1; i <= n; i++)
+            {
+                if (0 == n % i)
+                {
+                    answer += i;
+                }
+            }
+
+            return answer;
+        }
+    }
+
+}
