@@ -1,0 +1,47 @@
+using System;
+
+namespace lv1_OrderByStrDescEx_BubbleSort
+{
+    /* 문자열 s에 나타나는 문자를 큰것부터 작은 순으로 정렬해 새로운 문자열을 리턴하는 함수, solution을 완성해주세요.
+       s는 영문 대소문자로만 구성되어 있으며, 대문자는 소문자보다 작은 것으로 간주합니다. */
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string s = "Zbcdefg";
+
+            var oSol = new Solution();
+            Console.WriteLine(oSol.solution(s));
+            Console.ReadKey();
+        }
+    }
+    public class Solution
+    {
+        public string solution(string s)
+        {
+            string answer = "";
+
+            char tmpCh = ' ';
+            char[] ch = s.ToCharArray();
+
+            for (int i = 1; i < ch.Length; i++) // ★ i = 1 
+            {
+                for (int j = 0; j < ch.Length - i; j++)
+                {
+                    if (ch[j] < ch[j+1])
+                    {
+                        tmpCh = ch[j];
+                        ch[j] = ch[j+1];
+                        ch[j+1] = tmpCh;
+                    }
+                }
+            }
+
+            foreach (var c in ch)
+                answer += c;
+
+            return answer;
+        }
+    }
+
+}
