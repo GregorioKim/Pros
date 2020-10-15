@@ -1,0 +1,53 @@
+using System;
+using System.Linq;
+
+// 프스 lv1 체육복 20.10.15 
+namespace lv1_TrainingSuitEx
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int n = 5;
+            int[] lost = { 2, 4 };
+            int[] reserve = { 3 };
+
+            Solution oSol = new Solution();
+            Console.WriteLine(oSol.solution(n, lost, reserve));
+
+            Console.ReadKey();
+        }
+    }
+    public class Solution
+    {
+        public int solution(int n, int[] lost, int[] reserve)
+        {
+            int answer = 0;
+
+            var lstLost = lost.ToList();
+            var lstReserve = reserve.ToList();
+            int lostCnt = 0; 
+
+            for (int i = 0; i < lstReserve.Count; i++)
+            {
+                for (int j = 0; j < lstLost.Count; j++)
+                {
+                    if (lost[j] == reserve[i] + 1 || lost[j] == reserve[i] - 1)
+                    {
+                        lost[j] = -1;
+                        reserve[i] = -1;
+                        break;
+                    }
+                }
+            }
+            foreach (var lst in lost)
+            {
+                if (lst > 0)
+                    lostCnt++;
+            }
+            answer = n - lostCnt;
+
+            return answer;
+        }
+    }
+}
