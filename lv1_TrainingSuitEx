@@ -24,15 +24,24 @@ namespace lv1_TrainingSuitEx
         {
             int answer = 0;
 
-            var lstLost = lost.ToList();
-            var lstReserve = reserve.ToList();
-            int lostCnt = 0; 
-
-            for (int i = 0; i < lstReserve.Count; i++)
+            int lostCnt = 0;
+            //for (int i = 0; i < reserve.Length; i++)
+            //{
+            //    for (int j = 0; j < lost.Length; j++)
+            //    {
+            //        if (lost[j] == reserve[i] + 1 || lost[j] == reserve[i] - 1)
+            //        {
+            //            lost[j] = -1;
+            //            reserve[i] = -1;
+            //            break;
+            //        }
+            //    }
+            //}
+            for (int j = 0; j < lost.Length; j++)
             {
-                for (int j = 0; j < lstLost.Count; j++)
+                for (int i = 0; i < reserve.Length; i++)
                 {
-                    if (lost[j] == reserve[i] + 1 || lost[j] == reserve[i] - 1)
+                    if (lost[j] - 1 == reserve[i] || lost[j] + 1 == reserve[i])
                     {
                         lost[j] = -1;
                         reserve[i] = -1;
