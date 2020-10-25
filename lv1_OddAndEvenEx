@@ -1,0 +1,32 @@
+using System;
+
+namespace OddAndEvenEx
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int num = 4;
+
+            var oSol = new Solution();
+            Console.WriteLine(oSol.solution(num));
+            Console.ReadKey();
+        }
+    }
+
+    public class Solution
+    {
+        public string solution(int num)
+        {
+            string answer = "";
+
+            if (0 == num % 2)
+                answer = "Even";
+            else
+                answer = "Odd";
+
+            return answer;
+        }
+    }
+
+}
